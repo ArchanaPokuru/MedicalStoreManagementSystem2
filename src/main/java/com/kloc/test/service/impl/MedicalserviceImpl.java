@@ -55,7 +55,14 @@ public class MedicalserviceImpl implements VendorService,DrugService,CustomerSer
 	}
 
 	@Override
-	public VendorModule postvmModule(VendorModule vm) {
+	public VendorModule postvmModule(VendorModule vm) 
+	{	
+		//----for mongoDb bcz won't take unique id manuualy it will create by themselves...
+//		if(!vmRepository.findAll().stream().filter(e->e.getVendorId()==vm.getVendorId()).toList().isEmpty())
+//	     {
+//			throw new DataNotFoundException("vendorModule", "exists", vm.getVendorId());
+//	     }
+		//-----upto here
 		return  vmRepository.save(vm);
 	}
 
